@@ -1,6 +1,6 @@
 <template>
   <div class="container-page">
-    <div v-if="arrCard" class="card-page row row-cols-5">
+    <div v-if="arrCard" class="card-page row row-cols-5 g-5">
         <SongCard
          v-for="cardSong in arrCard" 
          :key="cardSong.title"
@@ -42,7 +42,7 @@ export default {
         background-color: #1E2D3B;
     }
     .card-page {
-        max-width: 70%;
+        max-width: 80%;
         margin: auto;
     }
 </style>

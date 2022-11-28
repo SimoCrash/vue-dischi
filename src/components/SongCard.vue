@@ -1,6 +1,6 @@
 <template>
   <div class="col">
-    <div class="contents">
+    <div class="contents text-center">
         <img class="poster img-fluid" :src="poster" :alt="title">
         <h1 class="title"> {{ title }}</h1>
         <div class="details">
@@ -25,5 +25,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .col {
+    background-color: #2E3A46;
+    .contents {
+      padding: 1rem;
+      .title {
+        color:white;
+        text-transform: uppercase;
+      }
+      .details {
+        color: #81807B;
+      }
+    }
+  }
 </style>
