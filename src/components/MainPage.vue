@@ -2,8 +2,8 @@
   <div class="container-page">
     <div v-if="arrCard" class="card-page row row-cols-5 g-5">
         <SongCard
-         v-for="cardSong in arrCard" 
-         :key="cardSong.title"
+         v-for="(cardSong, index) in arrCard.filter((cardSong) => {cardSong.genre === selectedValue})" 
+         :key="index"
          :poster = "cardSong.poster"
          :title = "cardSong.title"
          :author = "cardSong.author"
@@ -34,6 +34,9 @@ export default {
             this.arrCard = axiosResponse.data.response;
         })
     },
+    props: {
+        selectedValue: String,
+    }
 }
 </script>
 
@@ -42,7 +45,7 @@ export default {
         background-color: #1E2D3B;
     }
     .card-page {
-        max-width: 80%;
+        width: 80%;
         margin: auto;
     }
 </style>

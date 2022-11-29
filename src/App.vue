@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderPage></HeaderPage>
-    <MainPage></MainPage>
+    <HeaderPage @change="OnFiltersChange" />
+    <MainPage :selectedValue="selectedValue" />
   </div>
 </template>
 
@@ -13,7 +13,21 @@ export default {
   components: {
     HeaderPage,
     MainPage,
-}
+  },
+
+  data() {
+    return {
+      selectedValue: 'none',
+    }
+  },
+  
+  methods: {
+    OnFiltersChange(NewValue) {
+      this.selectedValue = NewValue;
+      console.log('sono NV= ' + NewValue);
+      console.log('sono sV = ' + this.selectedValue);
+    },
+  },
 }
 </script>
 
