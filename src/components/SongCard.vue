@@ -27,9 +27,11 @@ export default {
 
 <style lang="scss" scoped>
   .col {
-    background-color: #2E3A46;
+    
     .contents {
       padding: 1rem;
+      background-color: #2E3A46;
+      height: 100%;
       .title {
         color:white;
         text-transform: uppercase;

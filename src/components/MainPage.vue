@@ -2,7 +2,7 @@
   <div class="container-page">
     <div v-if="arrCard" class="card-page row row-cols-5 g-5">
         <SongCard
-         v-for="(cardSong, index) in arrCard.filter((cardSong) => {cardSong.genre === selectedValue})" 
+         v-for="(cardSong, index) in filteredSongs" 
          :key="index"
          :poster = "cardSong.poster"
          :title = "cardSong.title"
@@ -28,9 +28,18 @@ export default {
             arrCard: null,
         };
     },
+    computed: {
+        filteredSongs() {
+            if (this.selectedValue === 'none') {
+                return this.arrCard;
+            }
+            return this.arrCard.filter((cardSong) => cardSong.genre === this.selectedValue);
+        }
+    },
     created(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(axiosResponse => {
+            console.log(axiosResponse)
             this.arrCard = axiosResponse.data.response;
         })
     },
